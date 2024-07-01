@@ -1,7 +1,3 @@
-<?php 
-require_once __DIR__ . "/server.php";
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,11 +11,17 @@ require_once __DIR__ . "/server.php";
     <div id="app">
         <div class="container">
             <header class="p-3 mb-3">
-                <h1>TodoList</h1>
+                <h1 class="fw-bold">TodoList</h1>
             </header>
 
             <main>
-                
+                <div class="container">
+                    <ul class="row list-group">
+                        <li class="col-12 list-group-item p-3  border-2 border-danger rounded mb-2" v-for="(task, index) in tasks" :key="index">
+                            <p class="mb-0 fw-bold"> {{task.text}} </p>
+                        </li>
+                    </ul>
+                </div>
             </main>
         </div>
     </div>
