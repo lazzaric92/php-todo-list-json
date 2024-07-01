@@ -16,11 +16,19 @@
 
             <main>
                 <div class="container">
-                    <ul class="row list-group">
-                        <li class="col-12 list-group-item p-3  border-2 border-danger rounded mb-2" v-for="(task, index) in tasks" :key="index">
-                            <p class="mb-0 fw-bold"> {{task.text}} </p>
-                        </li>
-                    </ul>
+                    <div class="row">
+                        <ul class="col-12 list-group mb-5">
+                            <li class="list-group-item p-3  border-2 border-danger rounded mb-2" v-for="(task, index) in tasks" :key="index">
+                                <p class="mb-0 fw-bold"> {{task.text}} </p>
+                            </li>
+                        </ul>
+                        <div class="col-12 ps-0">
+                            <form action="./index.php" method="GET" class="d-flex justify-content-between">
+                                <input class="flex-grow-1 me-2" type="text" id="addTask" placeholder="Add new task" v-model.trim="newText" @keyup.enter="addNewTask(newText)">
+                                <button type="submit" class="btn btn-danger ms-auto" @click="addNewTask(newText)">+</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

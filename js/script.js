@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             tasks: [],
+            newText: ""
         }
     },
     methods: {
@@ -16,6 +17,21 @@ createApp({
             .catch(function (error) {
                 console.log(error);
             }); 
+        },
+        addNewTask: function(text){
+            axios.get('./server.php', {
+                params: {
+                    text: text
+                }
+            })
+            .then(function (response) {
+            console.log(response);
+            this.tasks = response.data;
+            })
+            .catch(function (error) {
+                console.warn("ERROR");
+            console.log(error);
+            });
         }
     },
     created(){
