@@ -9,7 +9,8 @@ createApp({
     },
     methods: {
         getTodoList: function(){
-            axios.get('./server.php')
+            axios.get('./server.php',
+            )
             .then((response) => {
                 console.log(response.data);
                 this.tasks = response.data;
@@ -18,15 +19,14 @@ createApp({
                 console.log(error);
             }); 
         },
-        addNewTask: function(text){
+        addNewTask: function(txt){
             axios.get('./server.php', {
                 params: {
-                    text: text
+                    text: txt
                 }
             })
             .then(function (response) {
             console.log(response);
-            this.tasks = response.data;
             })
             .catch(function (error) {
                 console.warn("ERROR");

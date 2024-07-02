@@ -17,6 +17,18 @@
             <main>
                 <div class="container">
                     <div class="row">
+                        <div class="col-12">
+                            <div class="row mb-3">
+                                <form action="./server.php" method="GET" class="d-flex">
+                                    <select class="form-select w-25 me-3" name="status">
+                                        <option value="deafault" selected>All</option>
+                                        <option value="0">Todo</option>
+                                        <option value="1">Done</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-danger">Filter</button>
+                                </form>
+                            </div>
+                        </div>
                         <ul class="col-12 list-group mb-5">
                             <li class="list-group-item p-3  border-2 border-danger rounded mb-2" v-for="(task, index) in tasks" :key="index">
                                 <p class="mb-0 fw-bold"> {{task.text}} </p>
@@ -24,7 +36,7 @@
                         </ul>
                         <div class="col-12 ps-0">
                             <form action="./index.php" method="GET" class="d-flex justify-content-between">
-                                <input class="flex-grow-1 me-2" type="text" id="addTask" placeholder="Add new task" v-model.trim="newText" @keyup.enter="addNewTask(newText)">
+                                <input class="flex-grow-1 me-2" type="text" name="text" id="newText" placeholder="Add new task" v-model.trim="newText" @keyup.enter="addNewTask(newText)">
                                 <button type="submit" class="btn btn-danger ms-auto" @click="addNewTask(newText)">+</button>
                             </form>
                         </div>

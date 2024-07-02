@@ -5,6 +5,6 @@
     },
     { 
         "text": "show tasks",
-        "done": false
+        "done": true
     }
 ]
