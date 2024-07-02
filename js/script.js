@@ -19,19 +19,28 @@ createApp({
                 console.log(error);
             }); 
         },
-        addNewTask: function(txt){
-            axios.get('./server.php', {
-                params: {
-                    text: txt
-                }
-            })
-            .then(function (response) {
-            console.log(response);
-            })
-            .catch(function (error) {
-                console.warn("ERROR");
-            console.log(error);
-            });
+        addNewTask: function(task){
+            if(this.newText !== ""){
+                const newObj = {
+                    "text": task,
+                    "done": false
+                };
+                this.tasks.push(newObj);
+                this.newText = "";
+            }
+            
+            // axios.get('./addTask.php', {
+            //     params: {
+            //         text: task
+            //     }
+            // })
+            // .then(function (response) {
+            // console.log(response);
+            // })
+            // .catch(function (error) {
+            //     console.warn("ERROR");
+            // console.log(error);
+            // });
         }
     },
     created(){
